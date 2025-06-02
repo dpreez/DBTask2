@@ -1,0 +1,116 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #1a73e8;
+  --primary-light: #529ef7;
+  --primary-dark: #0d47a1;
+  --accent: #00c4b4;
+  --accent-light: #5ef7e7;
+  --accent-dark: #008780;
+  --warning: #ffab40;
+  --error: #f44336;
+  --success: #4caf50;
+  --background: #f8f9fa;
+  --foreground: #202124;
+  --card: #ffffff;
+  --card-foreground: #202124;
+  --popover: #ffffff;
+  --popover-foreground: #202124;
+  --border: #e0e0e0;
+  --input: #f1f3f4;
+  --ring: rgba(26, 115, 232, 0.3);
+}
+
+.dark {
+  --primary: #529ef7;
+  --primary-light: #8bbdf8;
+  --primary-dark: #1a73e8;
+  --accent: #5ef7e7;
+  --accent-light: #8ff9f2;
+  --accent-dark: #00c4b4;
+  --warning: #ffcc80;
+  --error: #ef9a9a;
+  --success: #a5d6a7;
+  --background: #202124;
+  --foreground: #e8eaed;
+  --card: #303134;
+  --card-foreground: #e8eaed;
+  --popover: #303134;
+  --popover-foreground: #e8eaed;
+  --border: #5f6368;
+  --input: #303134;
+  --ring: rgba(82, 158, 247, 0.3);
+}
+
+@layer base {
+  * {
+    @apply border-appBorder;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply px-4 py-2 rounded-md font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2;
+  }
+  
+  .btn-primary {
+    @apply bg-primary text-white hover:bg-primary-dark;
+  }
+  
+  .btn-secondary {
+    @apply bg-accent text-white hover:bg-accent-dark;
+  }
+  
+  .btn-outline {
+    @apply border border-appBorder bg-transparent hover:bg-background;
+  }
+  
+  .input {
+    @apply px-3 py-2 bg-input border border-appBorder rounded-md focus:outline-none focus:ring-2 focus:ring-ring;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #9aa0a6;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #5f6368;
+}
+
+/* Animations */
+.fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.slide-up {
+  animation: slideUp 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(10px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
